@@ -1,14 +1,14 @@
 #pragma once
-#include "BaseMethod.h"
+#include "ControlMethod.h"
 
 namespace TrafficFlowChallenge
 {
-	class TrafficLights : public BaseMethod
+	class TrafficLights : public ControlMethod
 	{
 		public:
-			explicit TrafficLights(const int& totalCPMs);
+			explicit TrafficLights(const IntersectionInfo& info);
 			virtual ~TrafficLights();
-			virtual double efficient() override;
+			virtual double efficiency() override;
 			virtual void run() override;
 	};
 }

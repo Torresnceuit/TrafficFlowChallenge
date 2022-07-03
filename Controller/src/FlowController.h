@@ -1,11 +1,12 @@
 #pragma once
 #include <memory>
+#include <functional>
 
 #include "IntersectionInfo.h"
 
 namespace TrafficFlowChallenge
 {
-	enum class ControlMethod
+	enum class Method
 	{
 		ROUNDABOUT,
 		STOP_SIGNAL,
@@ -21,7 +22,7 @@ namespace TrafficFlowChallenge
 			void run();
 
 		private:
-			void consult(ControlMethod method) const;
+			void consult(Method method) const;
 			int totalCPMs() const;
 
 		private:

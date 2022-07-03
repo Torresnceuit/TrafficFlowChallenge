@@ -3,8 +3,8 @@
 
 namespace TrafficFlowChallenge
 {
-	TrafficLights::TrafficLights(const int& totalCPMs)
-	: BaseMethod(totalCPMs)
+	TrafficLights::TrafficLights(const IntersectionInfo& info)
+	: ControlMethod(info)
 	{
 		run();
 	}
@@ -14,20 +14,20 @@ namespace TrafficFlowChallenge
 	
 	}
 
-	double TrafficLights::efficient()
+	double TrafficLights::efficiency()
 	{
 		double efficient;
-		if(_totalCPMs >= 20)
+		if(totalCPMs() >= 20)
 		{
 			return 0.9;
 		}
 		
-		if(_totalCPMs >= 10 && _totalCPMs < 20)
+		if(totalCPMs() >= 10 && totalCPMs() < 20)
 		{
 			return 0.75;
 		}
 		
-		if(_totalCPMs < 10)
+		if(totalCPMs() < 10)
 		{
 			return 0.3;
 		}
@@ -35,7 +35,7 @@ namespace TrafficFlowChallenge
 	
 	void TrafficLights::run()
 	{
-		std::cout << "TrafficLights Efficient score for totalCPMs " << _totalCPMs << " is " << efficient() << std::endl;
+		std::cout << "TrafficLights Efficient score for total CPMs = " << totalCPMs() << " is " << efficiency() * 100 << " %" << std::endl;
 	}
 }
 

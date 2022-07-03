@@ -9,8 +9,8 @@ set(
 	${CONTROLLER_SOURCE_DIR}/FlowController.cpp
 	${CONTROLLER_SOURCE_DIR}/FlowController.h
 	${CONTROLLER_SOURCE_DIR}/IntersectionInfo.h
-	${CONTROLLER_SOURCE_DIR}/ControlMethods/BaseMethod.cpp
-	${CONTROLLER_SOURCE_DIR}/ControlMethods/BaseMethod.h
+	${CONTROLLER_SOURCE_DIR}/ControlMethods/ControlMethod.cpp
+	${CONTROLLER_SOURCE_DIR}/ControlMethods/ControlMethod.h
 	${CONTROLLER_SOURCE_DIR}/ControlMethods/Roundabout.cpp
 	${CONTROLLER_SOURCE_DIR}/ControlMethods/Roundabout.h
 	${CONTROLLER_SOURCE_DIR}/ControlMethods/StopSignal.cpp

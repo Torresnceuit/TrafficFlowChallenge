@@ -1,14 +1,14 @@
 #pragma once
-#include "BaseMethod.h"
+#include "ControlMethod.h"
 
 namespace TrafficFlowChallenge
 {
-	class StopSignal : public BaseMethod
+	class StopSignal : public ControlMethod
 	{
 		public:
-			explicit StopSignal(const int& totalCPMs);
+			explicit StopSignal(const IntersectionInfo& info);
 			virtual ~StopSignal();
-			virtual double efficient() override;
+			virtual double efficiency() override;
 			virtual void run() override;
 	};
 }

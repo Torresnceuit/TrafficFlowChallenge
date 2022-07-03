@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cctype>
 
 #include "FlowController.h"
 #include "IntersectionInfo.h"
@@ -14,7 +15,6 @@ int main()
 
 		while(true)
 		{
-
 			std::cout << "ROAD 1 (NORTH) CPM: ";
 			std::cin >> inputInfo.northCPMs;
 			while(!std::cin)
@@ -57,6 +57,18 @@ int main()
 			
 			FlowController controller(inputInfo);
 			controller.run();
+			
+			do
+			{
+				std::cout << "Press Y/y to continue, any key to exit." << std::endl ;
+			}
+			while (std::cin.get() != '\n');
+				
+			if(tolower(std::cin.get()) == 'y')
+			{
+				continue;
+			}
+			break;
 		}
 	}
 	catch(...)

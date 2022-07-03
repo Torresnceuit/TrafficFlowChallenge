@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(CommanderTests)
+project(ControllerTests)
 
 add_executable(
 	${PROJECT_NAME}
-	CommanderTests.cpp
-	CommanderTests.h
+	ControllerTests.cpp
+	ControllerTests.h
 )
 
 find_package(GTest REQUIRED)
@@ -15,7 +15,7 @@ target_link_libraries(
 	${PROJECT_NAME}
 	PUBLIC
 		${GTEST_BOTH_LIBRARIES}
-		Commander
+		Controller
 )
 
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 17)

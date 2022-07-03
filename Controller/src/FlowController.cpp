@@ -1,5 +1,5 @@
 #include "FlowController.h"
-#include "ControlMethods/BaseMethod.h"
+#include "ControlMethods/ControlMethod.h"
 #include "ControlMethods/Roundabout.h"
 #include "ControlMethods/StopSignal.h"
 #include "ControlMethods/TrafficLights.h"
@@ -20,32 +20,34 @@ int FlowController::totalCPMs() const
 	return _intersectionInfo.northCPMs + _intersectionInfo.eastCPMs + _intersectionInfo.southCPMs + _intersectionInfo.westCPMs;
 }
 
-void FlowController::consult(ControlMethod method) const
+void FlowController::consult(Method method) const
 {
-	BaseMethod* runMethod = nullptr;
+	ControlMethod* runMethod = nullptr;
 	switch(method)
 	{
-		case ControlMethod::ROUNDABOUT:
-			runMethod = new Roundabout(totalCPMs());
+		case Method::ROUNDABOUT:
+			runMethod = new Roundabout(_intersectionInfo);
 			break;
 
-		case ControlMethod::STOP_SIGNAL:
-			runMethod = new StopSignal(totalCPMs());
+		case Method::STOP_SIGNAL:
+			runMethod = new StopSignal(_intersectionInfo);
 			break;
 
-		case ControlMethod::TRAFFIC_LIGHTS:
-			runMethod = new TrafficLights(totalCPMs());
+		case Method::TRAFFIC_LIGHTS:
+			runMethod = new TrafficLights(_intersectionInfo);
 			break;
 
 		default:
-			runMethod = new Roundabout(totalCPMs());
-			runMethod = new StopSignal(totalCPMs());
-			runMethod = new TrafficLights(totalCPMs());
+			runMethod = new Roundabout(_intersectionInfo);
+			runMethod = new StopSignal(_intersectionInfo);
+			runMethod = new TrafficLights(_intersectionInfo);
 	}
+	
+	delete  runMethod;
 }
 
 void FlowController::run()
 {
-	consult(ControlMethod::INVALID);
+	consult(Method::INVALID);
 }
 }

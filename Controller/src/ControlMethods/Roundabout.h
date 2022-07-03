@@ -1,14 +1,14 @@
 #pragma once
-#include "BaseMethod.h"
+#include "ControlMethod.h"
 
 namespace TrafficFlowChallenge
 {
-class Roundabout : public BaseMethod
+class Roundabout : public ControlMethod
 {
 public:
-	explicit Roundabout(const int& totalCPMs);
+	explicit Roundabout(const IntersectionInfo& info);
 	virtual ~Roundabout();
-	virtual double efficient() override;
+	virtual double efficiency() override;
 	virtual void run() override;
 };
 }

@@ -3,8 +3,8 @@
 
 namespace TrafficFlowChallenge
 {
-	StopSignal::StopSignal(const int& totalCPMs)
-	: BaseMethod(totalCPMs)
+	StopSignal::StopSignal(const IntersectionInfo& info)
+	: ControlMethod(info)
 	{
 		run();
 	}
@@ -14,20 +14,20 @@ namespace TrafficFlowChallenge
 	
 	}
 
-	double StopSignal::efficient()
+	double StopSignal::efficiency()
 	{
 		double efficient;
-		if(_totalCPMs >= 20)
+		if(totalCPMs() >= 20)
 		{
 			return 0.2;
 		}
 		
-		if(_totalCPMs >= 10 && _totalCPMs < 20)
+		if(totalCPMs() >= 10 && totalCPMs() < 20)
 		{
 			return 0.3;
 		}
 		
-		if(_totalCPMs < 10)
+		if(totalCPMs() < 10)
 		{
 			return 0.4;
 		}
@@ -35,7 +35,7 @@ namespace TrafficFlowChallenge
 	
 	void StopSignal::run()
 	{
-		std::cout << "Stop Signals Efficient score for totalCPMs " << _totalCPMs << " is " << efficient() << std::endl;
+		std::cout << "Stop Signals Efficient score for total CPMs = " << totalCPMs() << " is " << efficiency() * 100 << " %" << std::endl;
 	}
 }
 
