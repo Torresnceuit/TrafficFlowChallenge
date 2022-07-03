@@ -1,4 +1,5 @@
 #include "Roundabout.h"
+#include <iostream>
 
 namespace TrafficFlowChallenge
 {
@@ -7,10 +8,14 @@ namespace TrafficFlowChallenge
 	{
 		run();
 	}
+	
+	Roundabout::~Roundabout()
+	{
+	
+	}
 
 	double Roundabout::efficient()
 	{
-		double efficient;
 		if(_totalCPMs >= 20)
 		{
 			return 0.5;
@@ -25,6 +30,11 @@ namespace TrafficFlowChallenge
 		{
 			return 0.9;
 		}
+	}
+	
+	void Roundabout::run()
+	{
+		std::cout << "Roundabout Efficient score for totalCPMs " << _totalCPMs << " is " << efficient() << std::endl;
 	}
 }
 

@@ -6,13 +6,12 @@ namespace TrafficFlowChallenge
 class BaseMethod
 {
 public:
-	explicit BaseMethod(int totalCPMs);
+	explicit BaseMethod(const int& totalCPMs);
 	virtual ~BaseMethod() = default;
 	virtual double efficient() = 0;
-	virtual void run();
+	virtual void run() = 0;
 
-private:
+protected:
 	int _totalCPMs;
-	double _efficient;
 };
 }

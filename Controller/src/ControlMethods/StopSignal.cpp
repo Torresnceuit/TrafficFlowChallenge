@@ -1,4 +1,5 @@
 #include "StopSignal.h"
+#include <iostream>
 
 namespace TrafficFlowChallenge
 {
@@ -6,6 +7,11 @@ namespace TrafficFlowChallenge
 	: BaseMethod(totalCPMs)
 	{
 		run();
+	}
+	
+	StopSignal::~StopSignal()
+	{
+	
 	}
 
 	double StopSignal::efficient()
@@ -25,6 +31,11 @@ namespace TrafficFlowChallenge
 		{
 			return 0.4;
 		}
+	}
+	
+	void StopSignal::run()
+	{
+		std::cout << "Stop Signals Efficient score for totalCPMs " << _totalCPMs << " is " << efficient() << std::endl;
 	}
 }
 

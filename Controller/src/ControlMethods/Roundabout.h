@@ -9,6 +9,6 @@ public:
 	explicit Roundabout(const int& totalCPMs);
 	virtual ~Roundabout();
 	virtual double efficient() override;
-	//virtual void run() override;
+	virtual void run() override;
 };
 }

@@ -8,9 +8,8 @@ set(
 	CONTROLLERS_FILES
 	${CONTROLLER_SOURCE_DIR}/FlowController.cpp
 	${CONTROLLER_SOURCE_DIR}/FlowController.h
-	${CONTROLLER_SOURCE_DIR}/Utils.cpp
-	${CONTROLLER_SOURCE_DIR}/Utils.h
-	${CONTROLLER_SOURCE_DIR}/ControlMethods/BaseMehod.cpp
+	${CONTROLLER_SOURCE_DIR}/IntersectionInfo.h
+	${CONTROLLER_SOURCE_DIR}/ControlMethods/BaseMethod.cpp
 	${CONTROLLER_SOURCE_DIR}/ControlMethods/BaseMethod.h
 	${CONTROLLER_SOURCE_DIR}/ControlMethods/Roundabout.cpp
 	${CONTROLLER_SOURCE_DIR}/ControlMethods/Roundabout.h

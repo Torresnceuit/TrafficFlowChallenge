@@ -1,4 +1,5 @@
 #include "BaseMethod.h"
+#include <iostream>
 
 namespace TrafficFlowChallenge
 {
@@ -7,8 +8,8 @@ namespace TrafficFlowChallenge
 	{
 	}
 	
-	BaseMethod::run()
+	void BaseMethod::run()
 	{
-		std::cout << "Efficient score: " << _efficient;
+		std::cout << "Efficient score: " << efficient();
 	}
 }

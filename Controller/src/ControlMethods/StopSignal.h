@@ -9,5 +9,6 @@ namespace TrafficFlowChallenge
 			explicit StopSignal(const int& totalCPMs);
 			virtual ~StopSignal();
 			virtual double efficient() override;
+			virtual void run() override;
 	};
 }

@@ -9,5 +9,6 @@ namespace TrafficFlowChallenge
 			explicit TrafficLights(const int& totalCPMs);
 			virtual ~TrafficLights();
 			virtual double efficient() override;
+			virtual void run() override;
 	};
 }

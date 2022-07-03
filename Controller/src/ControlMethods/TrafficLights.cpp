@@ -1,14 +1,20 @@
-#include "StopSignal.h"
+#include "TrafficLights.h"
+#include <iostream>
 
 namespace TrafficFlowChallenge
 {
-	TrafficLight::TrafficLight(const int& totalCPMs)
+	TrafficLights::TrafficLights(const int& totalCPMs)
 	: BaseMethod(totalCPMs)
 	{
 		run();
 	}
+	
+	TrafficLights::~TrafficLights()
+	{
+	
+	}
 
-	double TrafficLight::efficient()
+	double TrafficLights::efficient()
 	{
 		double efficient;
 		if(_totalCPMs >= 20)
@@ -25,6 +31,11 @@ namespace TrafficFlowChallenge
 		{
 			return 0.3;
 		}
+	}
+	
+	void TrafficLights::run()
+	{
+		std::cout << "TrafficLights Efficient score for totalCPMs " << _totalCPMs << " is " << efficient() << std::endl;
 	}
 }
 

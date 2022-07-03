@@ -1,16 +1,16 @@
 #pragma once
 #include <memory>
 
-#include "Utils.h"
+#include "IntersectionInfo.h"
 
 namespace TrafficFlowChallenge
 {
-	using namespace Utils;
 	enum class ControlMethod
 	{
 		ROUNDABOUT,
 		STOP_SIGNAL,
-		TRAFFIC_LIGHTS
+		TRAFFIC_LIGHTS,
+		INVALID
 	};
 
 	class FlowController
@@ -18,9 +18,10 @@ namespace TrafficFlowChallenge
 		public:
 			explicit FlowController(const IntersectionInfo& inputInfo);
 			~FlowController() = default;
+			void run();
 
 		private:
-			void consult() const;
+			void consult(ControlMethod method) const;
 			int totalCPMs() const;
 
 		private:
