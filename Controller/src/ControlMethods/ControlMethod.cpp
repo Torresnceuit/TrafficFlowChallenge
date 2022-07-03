@@ -17,4 +17,12 @@ namespace TrafficFlowChallenge
 	{
 		return _intersectionInfo.northCPMs + _intersectionInfo.eastCPMs + _intersectionInfo.southCPMs + _intersectionInfo.westCPMs;
 	}
+	
+	Throughput ControlMethod::getThroughput()
+	{
+		int total = totalCPMs();
+		if(total >= 20) return Throughput::HIGH;
+		if(total >=10 && total < 20) return Throughput::MEDIUM;
+		return Throughput::LOW;
+	}
 }

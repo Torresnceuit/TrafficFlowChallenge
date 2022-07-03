@@ -6,7 +6,6 @@ namespace TrafficFlowChallenge
 	TrafficLights::TrafficLights(const IntersectionInfo& info)
 	: ControlMethod(info)
 	{
-		run();
 	}
 	
 	TrafficLights::~TrafficLights()
@@ -16,18 +15,17 @@ namespace TrafficFlowChallenge
 
 	double TrafficLights::efficiency()
 	{
-		double efficient;
-		if(totalCPMs() >= 20)
+		if(getThroughput() == Throughput::HIGH)
 		{
 			return 0.9;
 		}
 		
-		if(totalCPMs() >= 10 && totalCPMs() < 20)
+		if(getThroughput() == Throughput::LOW)
 		{
 			return 0.75;
 		}
 		
-		if(totalCPMs() < 10)
+		if(getThroughput() == Throughput::MEDIUM)
 		{
 			return 0.3;
 		}

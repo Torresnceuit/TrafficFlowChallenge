@@ -7,7 +7,6 @@ namespace TrafficFlowChallenge
 Roundabout::Roundabout(const IntersectionInfo& info)
 	: ControlMethod(info)
 {
-	run();
 }
 
 Roundabout::~Roundabout()
@@ -18,17 +17,17 @@ Roundabout::~Roundabout()
 double Roundabout::efficiency()
 {
 	double efficiency = 0.0;
-	if(totalCPMs() >= 20)
+	if(getThroughput() == Throughput::HIGH)
 	{
 		efficiency = 0.5;
 	}
 
-	if(totalCPMs() >= 10 && totalCPMs() < 20)
+	if(getThroughput() == Throughput::MEDIUM)
 	{
 		efficiency = 0.75;
 	}
 
-	if(totalCPMs() < 10)
+	if(getThroughput() == Throughput::LOW)
 	{
 		efficiency = 0.9;
 	}

@@ -6,7 +6,6 @@ namespace TrafficFlowChallenge
 	StopSignal::StopSignal(const IntersectionInfo& info)
 	: ControlMethod(info)
 	{
-		run();
 	}
 	
 	StopSignal::~StopSignal()
@@ -16,18 +15,17 @@ namespace TrafficFlowChallenge
 
 	double StopSignal::efficiency()
 	{
-		double efficient;
-		if(totalCPMs() >= 20)
+		if(getThroughput() == Throughput::HIGH)
 		{
 			return 0.2;
 		}
 		
-		if(totalCPMs() >= 10 && totalCPMs() < 20)
+		if(getThroughput() == Throughput::MEDIUM)
 		{
 			return 0.3;
 		}
 		
-		if(totalCPMs() < 10)
+		if(getThroughput() == Throughput::LOW)
 		{
 			return 0.4;
 		}

@@ -5,12 +5,20 @@
 
 namespace TrafficFlowChallenge
 {
+enum class Throughput
+{
+	LOW,
+	MEDIUM,
+	HIGH
+};
+
 class ControlMethod
 {
 public:
 	explicit ControlMethod(const IntersectionInfo& info);
 	virtual ~ControlMethod() = default;
-	virtual int totalCPMs();
+	int totalCPMs();
+	Throughput getThroughput();
 	virtual double efficiency() = 0;
 	virtual void run() = 0;
 
