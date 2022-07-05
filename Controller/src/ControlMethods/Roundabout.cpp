@@ -32,8 +32,8 @@ double Roundabout::efficiency()
 		efficiency = 0.9;
 	}
 
-	if((_intersectionInfo.northCPMs >= 20 || _intersectionInfo.southCPMs >= 20)
-	   && (_intersectionInfo.eastCPMs >= 20 || _intersectionInfo.westCPMs >= 20))
+	if((getThroughput(RoadWay::NORTH) == Throughput::HIGH || getThroughput(RoadWay::SOUTH) == Throughput::HIGH)
+	   && (getThroughput(RoadWay::EAST) == Throughput::HIGH || getThroughput(RoadWay::WEST) == Throughput::HIGH))
 	{
 		efficiency += 0.1;
 	}
